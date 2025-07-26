@@ -4,7 +4,6 @@ namespace FinalProject.Models
 {
     public class TeamMember
     {
-        [Key]
         public int Id { get; set; }
         
         [Required]
@@ -20,9 +19,9 @@ namespace FinalProject.Models
         
         [Required]
         [StringLength(20)]
-        public string YearInProgram { get; set; } = string.Empty; // Freshman, Sophomore, Junior, Senior
+        public string YearInProgram { get; set; } = string.Empty; // Freshman, Sophomore, Junior, Senior, Graduate
         
         [StringLength(200)]
-        public string? Email { get; set; }
+        public string Email { get; set; } = string.Empty;
     }
 }

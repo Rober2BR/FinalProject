@@ -16,27 +16,27 @@ namespace FinalProject.Controllers
             _context = context;
         }
 
-        // GET: api/TeamMembers
-        [HttpGet]
+        // GET: api/TeamMembers/{id?}
+        [HttpGet("{id?}")]
         public async Task<ActionResult<IEnumerable<TeamMember>>> GetTeamMembers(int? id = null)
         {
             if (id == null || id == 0)
             {
                 return await _context.TeamMembers.Take(5).ToListAsync();
             }
-
+            
             var teamMember = await _context.TeamMembers.FindAsync(id);
             if (teamMember == null)
             {
                 return NotFound();
             }
-
-            return Ok(new List<TeamMember> { teamMember });
+            
+            return new List<TeamMember> { teamMember };
         }
 
         // POST: api/TeamMembers
         [HttpPost]
-        public async Task<ActionResult<TeamMember>> CreateTeamMember(TeamMember teamMember)
+        public async Task<ActionResult<TeamMember>> PostTeamMember(TeamMember teamMember)
         {
             _context.TeamMembers.Add(teamMember);
             await _context.SaveChangesAsync();
@@ -44,9 +44,9 @@ namespace FinalProject.Controllers
             return CreatedAtAction(nameof(GetTeamMembers), new { id = teamMember.Id }, teamMember);
         }
 
-        // PUT: api/TeamMembers/5
+        // PUT: api/TeamMembers/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateTeamMember(int id, TeamMember teamMember)
+        public async Task<IActionResult> PutTeamMember(int id, TeamMember teamMember)
         {
             if (id != teamMember.Id)
             {
@@ -61,7 +61,7 @@ namespace FinalProject.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!await TeamMemberExists(id))
+                if (!TeamMemberExists(id))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace FinalProject.Controllers
             return NoContent();
         }
 
-        // DELETE: api/TeamMembers/5
+        // DELETE: api/TeamMembers/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTeamMember(int id)
         {
@@ -87,9 +87,9 @@ namespace FinalProject.Controllers
             return NoContent();
         }
 
-        private async Task<bool> TeamMemberExists(int id)
+        private bool TeamMemberExists(int id)
         {
-            return await _context.TeamMembers.AnyAsync(e => e.Id == id);
+            return _context.TeamMembers.Any(e => e.Id == id);
         }
     }
 }

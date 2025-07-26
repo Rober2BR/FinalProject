@@ -16,44 +16,44 @@ namespace FinalProject.Controllers
             _context = context;
         }
 
-        // GET: api/FavoriteGames
-        [HttpGet]
+        // GET: api/FavoriteGames/{id?}
+        [HttpGet("{id?}")]
         public async Task<ActionResult<IEnumerable<FavoriteGame>>> GetFavoriteGames(int? id = null)
         {
             if (id == null || id == 0)
             {
                 return await _context.FavoriteGames.Take(5).ToListAsync();
             }
-
-            var game = await _context.FavoriteGames.FindAsync(id);
-            if (game == null)
+            
+            var favoriteGame = await _context.FavoriteGames.FindAsync(id);
+            if (favoriteGame == null)
             {
                 return NotFound();
             }
-
-            return Ok(new List<FavoriteGame> { game });
+            
+            return new List<FavoriteGame> { favoriteGame };
         }
 
         // POST: api/FavoriteGames
         [HttpPost]
-        public async Task<ActionResult<FavoriteGame>> CreateFavoriteGame(FavoriteGame game)
+        public async Task<ActionResult<FavoriteGame>> PostFavoriteGame(FavoriteGame favoriteGame)
         {
-            _context.FavoriteGames.Add(game);
+            _context.FavoriteGames.Add(favoriteGame);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetFavoriteGames), new { id = game.Id }, game);
+            return CreatedAtAction(nameof(GetFavoriteGames), new { id = favoriteGame.Id }, favoriteGame);
         }
 
-        // PUT: api/FavoriteGames/5
+        // PUT: api/FavoriteGames/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateFavoriteGame(int id, FavoriteGame game)
+        public async Task<IActionResult> PutFavoriteGame(int id, FavoriteGame favoriteGame)
         {
-            if (id != game.Id)
+            if (id != favoriteGame.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(game).State = EntityState.Modified;
+            _context.Entry(favoriteGame).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace FinalProject.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!await FavoriteGameExists(id))
+                if (!FavoriteGameExists(id))
                 {
                     return NotFound();
                 }
@@ -71,25 +71,25 @@ namespace FinalProject.Controllers
             return NoContent();
         }
 
-        // DELETE: api/FavoriteGames/5
+        // DELETE: api/FavoriteGames/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFavoriteGame(int id)
         {
-            var game = await _context.FavoriteGames.FindAsync(id);
-            if (game == null)
+            var favoriteGame = await _context.FavoriteGames.FindAsync(id);
+            if (favoriteGame == null)
             {
                 return NotFound();
             }
 
-            _context.FavoriteGames.Remove(game);
+            _context.FavoriteGames.Remove(favoriteGame);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private async Task<bool> FavoriteGameExists(int id)
+        private bool FavoriteGameExists(int id)
         {
-            return await _context.FavoriteGames.AnyAsync(e => e.Id == id);
+            return _context.FavoriteGames.Any(e => e.Id == id);
         }
     }
 }

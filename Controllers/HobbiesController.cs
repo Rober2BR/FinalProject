@@ -16,27 +16,27 @@ namespace FinalProject.Controllers
             _context = context;
         }
 
-        // GET: api/Hobbies
-        [HttpGet]
+        // GET: api/Hobbies/{id?}
+        [HttpGet("{id?}")]
         public async Task<ActionResult<IEnumerable<Hobby>>> GetHobbies(int? id = null)
         {
             if (id == null || id == 0)
             {
                 return await _context.Hobbies.Take(5).ToListAsync();
             }
-
+            
             var hobby = await _context.Hobbies.FindAsync(id);
             if (hobby == null)
             {
                 return NotFound();
             }
-
-            return Ok(new List<Hobby> { hobby });
+            
+            return new List<Hobby> { hobby };
         }
 
         // POST: api/Hobbies
         [HttpPost]
-        public async Task<ActionResult<Hobby>> CreateHobby(Hobby hobby)
+        public async Task<ActionResult<Hobby>> PostHobby(Hobby hobby)
         {
             _context.Hobbies.Add(hobby);
             await _context.SaveChangesAsync();
@@ -44,9 +44,9 @@ namespace FinalProject.Controllers
             return CreatedAtAction(nameof(GetHobbies), new { id = hobby.Id }, hobby);
         }
 
-        // PUT: api/Hobbies/5
+        // PUT: api/Hobbies/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateHobby(int id, Hobby hobby)
+        public async Task<IActionResult> PutHobby(int id, Hobby hobby)
         {
             if (id != hobby.Id)
             {
@@ -61,7 +61,7 @@ namespace FinalProject.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!await HobbyExists(id))
+                if (!HobbyExists(id))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace FinalProject.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Hobbies/5
+        // DELETE: api/Hobbies/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHobby(int id)
         {
@@ -87,9 +87,9 @@ namespace FinalProject.Controllers
             return NoContent();
         }
 
-        private async Task<bool> HobbyExists(int id)
+        private bool HobbyExists(int id)
         {
-            return await _context.Hobbies.AnyAsync(e => e.Id == id);
+            return _context.Hobbies.Any(e => e.Id == id);
         }
     }
 }

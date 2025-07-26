@@ -4,17 +4,23 @@ namespace FinalProject.Models
 {
     public class FavoriteMusicGenre
     {
-        [Key]
         public int Id { get; set; }
         
         [Required]
+        [StringLength(50)]
+        public string GenreName { get; set; } = string.Empty; // Rock, Hip-Hop, Classical, etc.
+        
+        [StringLength(500)]
+        public string Description { get; set; } = string.Empty;
+        
+        [Required]
         [StringLength(100)]
-        public string MusicGenre { get; set; } = string.Empty;
+        public string FavoriteArtist { get; set; } = string.Empty;
         
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        [Range(1, 10)]
+        public int PreferenceLevel { get; set; } // 1-10 how much you like this genre
         
-        public DateTime? UpdatedDate { get; set; }
-        
-        public bool IsActive { get; set; } = true;
+        [StringLength(200)]
+        public string RecommendedSong { get; set; } = string.Empty;
     }
 }

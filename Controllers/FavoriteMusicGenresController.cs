@@ -16,44 +16,44 @@ namespace FinalProject.Controllers
             _context = context;
         }
 
-        // GET: api/FavoriteMusicGenres
-        [HttpGet]
+        // GET: api/FavoriteMusicGenres/{id?}
+        [HttpGet("{id?}")]
         public async Task<ActionResult<IEnumerable<FavoriteMusicGenre>>> GetFavoriteMusicGenres(int? id = null)
         {
             if (id == null || id == 0)
             {
                 return await _context.FavoriteMusicGenres.Take(5).ToListAsync();
             }
-
-            var genre = await _context.FavoriteMusicGenres.FindAsync(id);
-            if (genre == null)
+            
+            var favoriteMusicGenre = await _context.FavoriteMusicGenres.FindAsync(id);
+            if (favoriteMusicGenre == null)
             {
                 return NotFound();
             }
-
-            return Ok(new List<FavoriteMusicGenre> { genre });
+            
+            return new List<FavoriteMusicGenre> { favoriteMusicGenre };
         }
 
         // POST: api/FavoriteMusicGenres
         [HttpPost]
-        public async Task<ActionResult<FavoriteMusicGenre>> CreateFavoriteMusicGenre(FavoriteMusicGenre genre)
+        public async Task<ActionResult<FavoriteMusicGenre>> PostFavoriteMusicGenre(FavoriteMusicGenre favoriteMusicGenre)
         {
-            _context.FavoriteMusicGenres.Add(genre);
+            _context.FavoriteMusicGenres.Add(favoriteMusicGenre);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetFavoriteMusicGenres), new { id = genre.Id }, genre);
+            return CreatedAtAction(nameof(GetFavoriteMusicGenres), new { id = favoriteMusicGenre.Id }, favoriteMusicGenre);
         }
 
-        // PUT: api/FavoriteMusicGenres/5
+        // PUT: api/FavoriteMusicGenres/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateFavoriteMusicGenre(int id, FavoriteMusicGenre genre)
+        public async Task<IActionResult> PutFavoriteMusicGenre(int id, FavoriteMusicGenre favoriteMusicGenre)
         {
-            if (id != genre.Id)
+            if (id != favoriteMusicGenre.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(genre).State = EntityState.Modified;
+            _context.Entry(favoriteMusicGenre).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace FinalProject.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!await FavoriteMusicGenreExists(id))
+                if (!FavoriteMusicGenreExists(id))
                 {
                     return NotFound();
                 }
@@ -71,25 +71,25 @@ namespace FinalProject.Controllers
             return NoContent();
         }
 
-        // DELETE: api/FavoriteMusicGenres/5
+        // DELETE: api/FavoriteMusicGenres/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFavoriteMusicGenre(int id)
         {
-            var genre = await _context.FavoriteMusicGenres.FindAsync(id);
-            if (genre == null)
+            var favoriteMusicGenre = await _context.FavoriteMusicGenres.FindAsync(id);
+            if (favoriteMusicGenre == null)
             {
                 return NotFound();
             }
 
-            _context.FavoriteMusicGenres.Remove(genre);
+            _context.FavoriteMusicGenres.Remove(favoriteMusicGenre);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private async Task<bool> FavoriteMusicGenreExists(int id)
+        private bool FavoriteMusicGenreExists(int id)
         {
-            return await _context.FavoriteMusicGenres.AnyAsync(e => e.Id == id);
+            return _context.FavoriteMusicGenres.Any(e => e.Id == id);
         }
     }
 }
