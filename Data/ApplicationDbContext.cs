@@ -52,11 +52,11 @@ namespace FinalProject.Data
                 new TeamMember 
                 { 
                     Id = 4, 
-                    FullName = "Team Member 4 - [Replace with actual name]", 
-                    Birthdate = new DateTime(2003, 1, 30), 
-                    CollegeProgram = "Computer Science", 
-                    YearInProgram = "Freshman",
-                    Email = "member4@email.com"
+                    FullName = "Kyler Hayes", 
+                    Birthdate = new DateTime(2004, 10, 13), 
+                    CollegeProgram = "Information Technology", 
+                    YearInProgram = "Sophomore",
+                    Email = "hayes2k4@mail.uc.edu"
                 }
             );
             
