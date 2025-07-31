@@ -495,13 +495,8 @@
           "Microsoft.EntityFrameworkCore.Design": "9.0.7"
         }
       },
-<<<<<<< HEAD
-      "Microsoft.Extensions.ApiDescription.Server/6.0.3": {},
-      "Microsoft.Extensions.Caching.Abstractions/9.0.7": {
-=======
       "Microsoft.Extensions.ApiDescription.Server/8.0.0": {},
-      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
->>>>>>> bca775807dcc6b54af0a27c1b7e5167dcf93b1a6
+      "Microsoft.Extensions.Caching.Abstractions/9.0.7": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "9.0.7"
         },
@@ -898,9 +893,6 @@
           }
         }
       },
-<<<<<<< HEAD
-      "System.CodeDom/6.0.0": {
-=======
       "Swashbuckle.AspNetCore/9.0.3": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "8.0.0",
@@ -939,8 +931,7 @@
           }
         }
       },
-      "System.CodeDom/4.4.0": {
->>>>>>> bca775807dcc6b54af0a27c1b7e5167dcf93b1a6
+      "System.CodeDom/6.0.0": {
         "runtime": {
           "lib/net6.0/System.CodeDom.dll": {
             "assemblyVersion": "6.0.0.0",
@@ -1659,9 +1650,6 @@
       "path": "nswag.generation.aspnetcore/14.0.3",
       "hashPath": "nswag.generation.aspnetcore.14.0.3.nupkg.sha512"
     },
-<<<<<<< HEAD
-    "System.CodeDom/6.0.0": {
-=======
     "Swashbuckle.AspNetCore/9.0.3": {
       "type": "package",
       "serviceable": true,
@@ -1690,8 +1678,7 @@
       "path": "swashbuckle.aspnetcore.swaggerui/9.0.3",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.9.0.3.nupkg.sha512"
     },
-    "System.CodeDom/4.4.0": {
->>>>>>> bca775807dcc6b54af0a27c1b7e5167dcf93b1a6
+    "System.CodeDom/6.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-CPc6tWO1LAer3IzfZufDBRL+UZQcj5uS207NHALQzP84Vp/z6wF0Aa0YZImOQY8iStY0A2zI/e3ihKNPfUm8XA==",

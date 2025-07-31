@@ -325,3 +325,7 @@ C:\Users\224340\Source\Repos\FinalProject\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\224340\Source\Repos\FinalProject\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\224340\Source\Repos\FinalProject\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\224340\Source\Repos\FinalProject\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\brand\coreapps\FinalProject\FinalProject\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\brand\coreapps\FinalProject\FinalProject\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\brand\coreapps\FinalProject\FinalProject\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\brand\coreapps\FinalProject\FinalProject\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
