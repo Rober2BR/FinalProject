@@ -6,9 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-// Add Entity Framework
+// Add Entity Framework with In-Memory Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseInMemoryDatabase("FinalProjectDb"));
 
 // Add CORS policy (if needed for frontend)
 builder.Services.AddCors(options =>
@@ -55,19 +55,16 @@ app.MapControllers();
 try
 {
     using var scope = app.Services.CreateScope();
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<ApplicationDbContext>();
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     
-    // Delete and recreate database to ensure clean state
-    context.Database.EnsureDeleted();
+    // For in-memory database, just ensure it's created (seeding happens automatically)
     context.Database.EnsureCreated();
     
-    Console.WriteLine("Database initialized successfully.");
+    Console.WriteLine("In-memory database initialized successfully with seed data.");
 }
 catch (Exception ex)
 {
     Console.WriteLine($"An error occurred while initializing the database: {ex.Message}");
-    Console.WriteLine($"Stack trace: {ex.StackTrace}");
 }
 
 app.Run();
