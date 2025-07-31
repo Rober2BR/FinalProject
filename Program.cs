@@ -17,11 +17,9 @@ builder.Services.AddOpenApiDocument();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseOpenApi();
-    app.UseSwaggerUi();
-}
+app.UseOpenApi();      // generates /swagger/v1/swagger.json
+app.UseSwaggerUi();    // serves the Swagger UI at /swagger
+
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
