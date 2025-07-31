@@ -52,25 +52,22 @@ app.UseAuthorization();
 app.MapControllers();
 
 // Ensure database is created and seeded
-using (var scope = app.Services.CreateScope())
+try
 {
+    using var scope = app.Services.CreateScope();
     var services = scope.ServiceProvider;
-    try
-    {
-        var context = services.GetRequiredService<ApplicationDbContext>();
-        
-        // Ensure database is created
-        context.Database.EnsureCreated();
-        
-        // Optionally, you can also run migrations if you prefer
-        // context.Database.Migrate();
-        
-        Console.WriteLine("Database initialized successfully.");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"An error occurred while initializing the database: {ex.Message}");
-    }
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    
+    // Delete and recreate database to ensure clean state
+    context.Database.EnsureDeleted();
+    context.Database.EnsureCreated();
+    
+    Console.WriteLine("Database initialized successfully.");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"An error occurred while initializing the database: {ex.Message}");
+    Console.WriteLine($"Stack trace: {ex.StackTrace}");
 }
 
 app.Run();
