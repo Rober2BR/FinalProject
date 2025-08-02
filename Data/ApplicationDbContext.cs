@@ -34,11 +34,11 @@ namespace FinalProject.Data
                 new TeamMember 
                 { 
                     Id = 2, 
-                    FullName = "Team Member 2 - [Replace with actual name]", 
-                    Birthdate = new DateTime(2002, 3, 22), 
-                    CollegeProgram = "Software Engineering", 
-                    YearInProgram = "Sophomore",
-                    Email = "member2@email.com"
+                    FullName = "Jared Forsythe", 
+                    Birthdate = new DateTime(1992, 1, 30), 
+                    CollegeProgram = "Information Technology", 
+                    YearInProgram = "Freshman",
+                    Email = "forsytjd@mail.uc.edu"
                 },
                 new TeamMember 
                 { 
@@ -74,10 +74,10 @@ namespace FinalProject.Data
                 new Hobby 
                 { 
                     Id = 2, 
-                    Name = "Rock Climbing", 
-                    Description = "Indoor and outdoor climbing adventures", 
-                    Category = "Outdoor", 
-                    SkillLevel = 6, 
+                    Name = "Lifting", 
+                    Description = "Lifting weights in home gym, targetted towards gaining strength", 
+                    Category = "Sports", 
+                    SkillLevel = 8, 
                     IsActive = true 
                 },
                 new Hobby 
@@ -114,11 +114,11 @@ namespace FinalProject.Data
                 new FavoriteGame 
                 { 
                     Id = 2, 
-                    Title = "Elden Ring", 
-                    Platform = "PC", 
-                    Genre = "Action RPG", 
-                    Rating = 9, 
-                    Review = "Challenging and rewarding souls-like with amazing world design." 
+                    Title = "NBA2k", 
+                    Platform = "Xbox", 
+                    Genre = "Sports", 
+                    Rating = 8, 
+                    Review = "Fun and challenging to play against others." 
                 },
                 new FavoriteGame 
                 { 
@@ -154,11 +154,11 @@ namespace FinalProject.Data
                 new FavoriteMusicGenre 
                 { 
                     Id = 2, 
-                    GenreName = "Hip Hop", 
-                    Description = "Rhythmic spoken lyrics with strong beats and social commentary", 
-                    FavoriteArtist = "Kendrick Lamar", 
+                    GenreName = "Pop Punk", 
+                    Description = "Fast-paced, energetic sound", 
+                    FavoriteArtist = "Fall Out Boy", 
                     PreferenceLevel = 8, 
-                    RecommendedSong = "HUMBLE." 
+                    RecommendedSong = "Saturday"  
                 },
                 new FavoriteMusicGenre 
                 { 

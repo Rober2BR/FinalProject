@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\brand\\coreapps\\FinalProject\\FinalProject\\FinalProject.csproj": {}
+    "C:\\Users\\party\\FinalProject\\FinalProject\\FinalProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\brand\\coreapps\\FinalProject\\FinalProject\\FinalProject.csproj": {
+    "C:\\Users\\party\\FinalProject\\FinalProject\\FinalProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brand\\coreapps\\FinalProject\\FinalProject\\FinalProject.csproj",
+        "projectUniqueName": "C:\\Users\\party\\FinalProject\\FinalProject\\FinalProject.csproj",
         "projectName": "FinalProject",
-        "projectPath": "C:\\Users\\brand\\coreapps\\FinalProject\\FinalProject\\FinalProject.csproj",
-        "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brand\\coreapps\\FinalProject\\FinalProject\\obj\\",
+        "projectPath": "C:\\Users\\party\\FinalProject\\FinalProject\\FinalProject.csproj",
+        "packagesPath": "C:\\Users\\party\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\party\\FinalProject\\FinalProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\brand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\party\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,6 +66,8 @@
               "version": "[8.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.11, )"
             },
@@ -84,6 +87,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -92,7 +113,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
