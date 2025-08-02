@@ -43,11 +43,11 @@ namespace FinalProject.Data
                 new TeamMember 
                 { 
                     Id = 3, 
-                    FullName = "Team Member 3 - [Replace with actual name]", 
-                    Birthdate = new DateTime(2000, 11, 8), 
+                    FullName = "Michael Doster", 
+                    Birthdate = new DateTime(1976, 09, 12), 
                     CollegeProgram = "Information Technology", 
                     YearInProgram = "Senior",
-                    Email = "member3@email.com"
+                    Email = "dosterma@mail.uc.edu"
                 },
                 new TeamMember 
                 { 
@@ -83,9 +83,9 @@ namespace FinalProject.Data
                 new Hobby 
                 { 
                     Id = 3, 
-                    Name = "Photography", 
-                    Description = "Capturing moments and landscapes", 
-                    Category = "Creative", 
+                    Name = "Traveling", 
+                    Description = "Around the world", 
+                    Category = "Travel", 
                     SkillLevel = 8, 
                     IsActive = true 
                 },
@@ -123,11 +123,11 @@ namespace FinalProject.Data
                 new FavoriteGame 
                 { 
                     Id = 3, 
-                    Title = "Cyberpunk 2077", 
-                    Platform = "PlayStation 5", 
-                    Genre = "RPG", 
+                    Title = "Far Cry 3", 
+                    Platform = "Xbox 360", 
+                    Genre = "FPS", 
                     Rating = 8, 
-                    Review = "Great story and visuals, much improved after updates." 
+                    Review = "Classic" 
                 },
                 new FavoriteGame 
                 { 
@@ -163,11 +163,11 @@ namespace FinalProject.Data
                 new FavoriteMusicGenre 
                 { 
                     Id = 3, 
-                    GenreName = "Electronic", 
-                    Description = "Digital music with synthesized sounds and electronic beats", 
-                    FavoriteArtist = "Daft Punk", 
+                    GenreName = "ALT", 
+                    Description = "New bands and new music styles", 
+                    FavoriteArtist = "Matt Maeson", 
                     PreferenceLevel = 9, 
-                    RecommendedSong = "One More Time" 
+                    RecommendedSong = "Cringe" 
                 },
                 new FavoriteMusicGenre 
                 { 
